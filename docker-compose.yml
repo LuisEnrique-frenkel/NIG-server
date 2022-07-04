@@ -62,22 +62,8 @@ services:
     ports:
       - 1883:1883
       - 9001:9001
-
-  db:
-    platform: linux/x86_64
-    image: mysql:5.7
-    container_name: mysql
-    restart: always
-    environment:
-      - MYSQL_DATABASE=DB
-      - MYSQL_ROOT_PASSWORD=MY5QL
-    ports:
-      - '3306:3306'
-    volumes:
-      - mysql_data:/var/lib/mysql
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+ 
 volumes:
   grafana_data: {}
   influxdb_data: {}
   node-red_data: {}
-  mysql_data : {}
