@@ -64,13 +64,13 @@ services:
       - 9001:9001
 
   db:
-    image: mysql:8.0
-    cap_add:
-      - SYS_NICE
+    platform: linux/x86_64
+    image: mysql:5.7
+    container_name: mysql
     restart: always
     environment:
-      - MYSQL_DATABASE=quotes
-      - MYSQL_ROOT_PASSWORD=mauFJcuf5dhRMQrjj
+      - MYSQL_DATABASE=DB
+      - MYSQL_ROOT_PASSWORD=MY5QL
     ports:
       - '3306:3306'
     volumes:
