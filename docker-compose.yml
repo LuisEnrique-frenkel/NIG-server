@@ -25,7 +25,7 @@ services:
     ports:
       - '8086:8086'
     volumes:
-      - influxdb_data:/var/lib/influxdb
+      - influxdb_data:/var/lib/influxdb2
 
   grafana:
     image: grafana/grafana-oss:latest-ubuntu
