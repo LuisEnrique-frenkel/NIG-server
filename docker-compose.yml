@@ -15,7 +15,7 @@ services:
     - '8125:8125'
 
   influxdb:
-    image: influxdb:1.8
+    image: influxdb:2.1.1
     container_name: influxdb
     restart: always
     environment:
@@ -53,7 +53,7 @@ services:
     ports:
       - '1880:1880'
     volumes:
-      - node-red_data:/var/lib/node-red
+      - node-red_data:/data
 
   mosquitto:
     image: eclipse-mosquitto
@@ -66,4 +66,4 @@ services:
 volumes:
   grafana_data: {}
   influxdb_data: {}
-  node-red_data: {}
+  node-red_data: 
