@@ -19,9 +19,11 @@ services:
     container_name: influxdb
     restart: always
     environment:
-      - INFLUXDB_DB=influx
-      - INFLUXDB_ADMIN_USER=admin
-      - INFLUXDB_ADMIN_PASSWORD=admin
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=my-user
+      - DOCKER_INFLUXDB_INIT_PASSWORD=my-password
+      - DOCKER_INFLUXDB_INIT_ORG=my-org
+      - DOCKER_INFLUXDB_INIT_BUCKET=my-bucket
     ports:
       - '8086:8086'
     volumes:
