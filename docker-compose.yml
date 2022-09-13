@@ -15,7 +15,7 @@ services:
     - '8125:8125'
 
   influxdb:
-    image: influxdb:2.1.1
+    image: influxdb:latest
     container_name: influxdb
     restart: always
     environment:
