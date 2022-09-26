@@ -60,14 +60,20 @@ services:
 
   mosquitto:
     image: eclipse-mosquitto
+    container_name: MQTT
     volumes:
-      - ./:/mosquitto/:rw
+      - mqtt_config:/mosquitto/config
+      - mqtt_data:/mosquitto/data
+      - mqtt_log:/mosquitto/log
     ports:
       - 1883:1883
       - 9001:9001
  
 volumes:
-  grafana_data: {}
+  grafana_data: 
   influxdb_data:
   influxdb_data_conf:
-  node-red_data: 
+  node-red_data:
+  mqtt_config:
+  mqtt_data:
+  mqtt_log:
