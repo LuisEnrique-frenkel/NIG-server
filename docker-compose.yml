@@ -45,7 +45,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - ./grafana/data:/var/lib/grafana
+      - ./grafana/var/lib/grafana:/var/lib/grafana
   
   nodered:
     image: nodered/node-red:latest
