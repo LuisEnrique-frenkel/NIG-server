@@ -45,7 +45,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - ./grafana/var/lib/grafana:/var/lib/grafana
+      - grafana_data:/var/lib/grafana
   
   nodered:
     image: nodered/node-red:latest
@@ -70,7 +70,7 @@ services:
       - 9001:9001
  
 volumes:
-  grafana: 
+  grafana_data: 
   influxdb:
   node-red:
   mqtt:
