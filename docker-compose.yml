@@ -56,7 +56,7 @@ services:
     ports:
       - '1880:1880'
     volumes:
-      - ./node-red/data:/data
+      - node-red_data:/data
 
   mosquitto:
     image: eclipse-mosquitto
@@ -72,5 +72,5 @@ services:
 volumes:
   grafana_data: 
   influxdb:
-  node-red:
+  node-red_data:
   mqtt:
