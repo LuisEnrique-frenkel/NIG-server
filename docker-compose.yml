@@ -24,6 +24,7 @@ services:
       - DOCKER_INFLUXDB_INIT_PASSWORD=my-password
       - DOCKER_INFLUXDB_INIT_ORG=my-org
       - DOCKER_INFLUXDB_INIT_BUCKET=my-bucket
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-auth-token
     ports:
       - '8086:8086'
     volumes:
