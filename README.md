@@ -32,21 +32,28 @@ Make sure you have Docker and Docker Compose installed on your system.
     NODE_RED_PASSWORD=admin_password
     INFLUXDB_USERNAME=influxdb_user
     INFLUXDB_PASSWORD=influxdb_password
+    INFLUXDB_ORG=my_org
+    INFLUXDB_BUCKET=my_bucket
+    INFLUXDB_ADMIN_TOKEN=token
+    INFLUXD_SESSION_LENGTH=86400
     GRAFANA_ADMIN_USERNAME=grafana_admin
     GRAFANA_ADMIN_PASSWORD=grafana_password
     MQTT_USERNAME=mqtt_user
     MQTT_PASSWORD=mqtt_password
     ```
-
    Replace the values with your desired usernames and passwords.
 
 4. Start the NIG server:
 
     ```bash
-    docker-compose up -d
+    chmod +x install.sh  
     ```
+5. Start the NIG server:
 
-5. Access the services:
+    ```bash
+    ./install.sh
+    ```
+6. Access the services:
 
     - **Node-RED**: http://localhost:1880
     - **Influx**: http://localhost:8086

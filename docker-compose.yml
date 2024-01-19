@@ -42,7 +42,7 @@ services:
     restart: always
     depends_on:
       - influxdb
-    environment:
+    environment: 
       - NODE_RED_USERNAME=${NODE_RED_USERNAME}
       - NODE_RED_PASSWORD=${NODE_RED_PASSWORD}
     ports:
