@@ -1,30 +1,18 @@
-
 version: '3.6'
-services:
-  telegraf:
-    image: telegraf
-    container_name: telegraf
-    restart: always
-    volumes:
-    - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
-    depends_on:
-      - influxdb
-    links:
-      - influxdb
-    ports:
-    - '8125:8125'
 
+services:
   influxdb:
     image: influxdb:latest
     container_name: influxdb
     restart: always
     environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
-      - DOCKER_INFLUXDB_INIT_USERNAME=my-user
-      - DOCKER_INFLUXDB_INIT_PASSWORD=my-password
-      - DOCKER_INFLUXDB_INIT_ORG=my-org
-      - DOCKER_INFLUXDB_INIT_BUCKET=my-bucket
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-auth-token
+      - DOCKER_INFLUXDB_INIT_USERNAME=${INFLUXDB_USERNAME}
+      - DOCKER_INFLUXDB_INIT_PASSWORD=${INFLUXDB_PASSWORD}
+      - DOCKER_INFLUXDB_INIT_ORG=${INFLUXDB_ORG}
+      - DOCKER_INFLUXDB_INIT_BUCKET=${INFLUXDB_BUCKET}
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${INFLUXDB_ADMIN_TOKEN}
+      - INFLUXD_SESSION_LENGTH=${INFLUXD_SESSION_LENGTH}
     ports:
       - '8086:8086'
     volumes:
@@ -38,9 +26,9 @@ services:
     depends_on:
       - influxdb
     environment:
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=admin
-      - GF_INSTALL_PLUGINS=
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD}
+      - GF_INSTALL_PLUGINS=${GRAFANA_INSTALL_PLUGINS}
     links:
       - influxdb
     ports:
@@ -54,6 +42,9 @@ services:
     restart: always
     depends_on:
       - influxdb
+    environment:
+      - NODE_RED_USERNAME=${NODE_RED_USERNAME}
+      - NODE_RED_PASSWORD=${NODE_RED_PASSWORD}
     ports:
       - '1880:1880'
     volumes:
@@ -67,6 +58,9 @@ services:
       - ./mqtt/config:/mosquitto/config
       - ./mqtt/data:/mosquitto/data
       - ./mqtt/log:/mosquitto/log
+    environment:
+      - MQTT_USERNAME=${MQTT_USERNAME}
+      - MQTT_PASSWORD=${MQTT_PASSWORD}
     ports:
       - 1883:1883
       - 9001:9001
