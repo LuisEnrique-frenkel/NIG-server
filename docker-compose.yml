@@ -52,6 +52,7 @@ services:
 
   mqtt:
     restart: always
+    container_name: mqtt
     build:
       context: ./mqtt
       dockerfile: Dockerfile
