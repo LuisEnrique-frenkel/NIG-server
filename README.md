@@ -46,14 +46,10 @@ Make sure you have Docker and Docker Compose installed on your system.
 4. Start the NIG server:
 
     ```bash
-    chmod +x install.sh  
+    docker-compose up -d 
     ```
-5. Start the NIG server:
 
-    ```bash
-    ./install.sh
-    ```
-6. Access the services:
+5. Access the services:
 
     - **Node-RED**: http://localhost:1880
     - **Influx**: http://localhost:8086

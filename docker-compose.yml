@@ -50,17 +50,18 @@ services:
     volumes:
       - node-red_data:/data
 
-  mosquitto:
-    image: eclipse-mosquitto
-    container_name: mqtt
+  mqtt:
     restart: always
+    build:
+      context: ./mqtt
+      dockerfile: Dockerfile
     volumes:
       - ./mqtt/config:/mosquitto/config
       - ./mqtt/data:/mosquitto/data
       - ./mqtt/log:/mosquitto/log
     environment:
       - MQTT_USERNAME=${MQTT_USERNAME}
-      - MQTT_PASSWORD=${MQTT_PASSWORD}
+      - MQTT_PASSWORD=${MQTT_PASSWORD}  
     ports:
       - 1883:1883
       - 9001:9001
