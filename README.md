@@ -43,19 +43,25 @@ Make sure you have Docker and Docker Compose installed on your system.
     ```
    Replace the values with your desired usernames and passwords.
 
-4. Start the NIG server:
+4. Create certificates:
 
     ```bash
     chmod +x CertsMaker.sh 
     ```
 
-5. Start the NIG server:
+5. Create certificates:
+
+    ```bash
+    sudo ./CertsMaker.sh <file name> <ip> 
+    ```
+
+6. Start the NIG server:
 
     ```bash
     docker-compose up -d 
     ```
 
-6. Access the services:
+7. Access the services:
 
     - **Node-RED**: http://localhost:1880
     - **Influx**: http://localhost:8086
