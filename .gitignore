@@ -1,2 +1,8 @@
-./mqtt/config/data
-./mqtt/config/log
+mqtt/config/data
+mqtt/config/log
+mqtt/certs
+nodered/certs
+grafana/certs
+influx/certs
+influx/etc
+influx/var

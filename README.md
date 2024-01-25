@@ -46,10 +46,16 @@ Make sure you have Docker and Docker Compose installed on your system.
 4. Start the NIG server:
 
     ```bash
+    chmod +x CertsMaker.sh 
+    ```
+
+5. Start the NIG server:
+
+    ```bash
     docker-compose up -d 
     ```
 
-5. Access the services:
+6. Access the services:
 
     - **Node-RED**: http://localhost:1880
     - **Influx**: http://localhost:8086
@@ -93,5 +99,6 @@ docker-compose down
 ## Notes
 * Make sure to secure your credentials and regularly update passwords for security.
 * Update the .env file for customized configuration.
+* Usefull page for certificates: https://www.laub-home.de/wiki/Eclipse_Mosquitto_Secure_MQTT_Broker_Docker_Installation
 
 Feel free to contribute or report issues at GitHub Repository.

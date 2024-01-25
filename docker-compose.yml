@@ -60,12 +60,12 @@ services:
       - ./mqtt/config:/mosquitto/config
       - ./mqtt/data:/mosquitto/data
       - ./mqtt/log:/mosquitto/log
+      - ./mqtt/certs:/mosquitto/certs
     environment:
       - MQTT_USERNAME=${MQTT_USERNAME}
       - MQTT_PASSWORD=${MQTT_PASSWORD}  
     ports:
-      - 1883:1883
-      - 9001:9001
+      - 8883:8883
  
 volumes:
   grafana_data: 
