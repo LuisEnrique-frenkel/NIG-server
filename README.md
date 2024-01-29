@@ -6,7 +6,7 @@ This Docker Compose configuration allows you to easily set up a NIG (Node-RED, I
 
 ## Prerequisites
 
-Make sure you have Docker and Docker Compose installed on your system.
+Make sure you have Docker and Docker Compose and openssl installed on your system.
 
 - [Docker Installation Guide](https://docs.docker.com/get-docker/)
 - [Docker Compose Installation Guide](https://docs.docker.com/compose/install/)
@@ -29,7 +29,8 @@ Make sure you have Docker and Docker Compose installed on your system.
 
     ```env
     NODE_RED_USERNAME=admin
-    NODE_RED_PASSWORD=admin_password
+    NODE_RED_PASSWORD=admin
+    NODE_RED_CREDENTIAL_SECRET=CredPass
     INFLUXDB_USERNAME=influxdb_user
     INFLUXDB_PASSWORD=influxdb_password
     INFLUXDB_ORG=my_org
@@ -78,7 +79,7 @@ Make sure you have Docker and Docker Compose installed on your system.
 
 ### InfluxDB
 
-- - Access Node-RED at http://localhost:8086
+- Access Node-RED at http://localhost:8086
 - Username: `influxdb_user`
 - Password: `influxdb_password`
 

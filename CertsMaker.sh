@@ -54,7 +54,7 @@ function generate_server() {
    openssl x509 -req -sha256 -in "$COMPOSE_PROJECT_DIR/certs/server.csr" -CA "$COMPOSE_PROJECT_DIR/certs/ca.crt" -CAkey "$COMPOSE_PROJECT_DIR/certs/ca.key" -CAcreateserial -out "$COMPOSE_PROJECT_DIR/certs/server.crt" -days 3650
 
    # Establecer permisos más restrictivos
-   chmod 400 "$COMPOSE_PROJECT_DIR/certs/server.key"
+   chmod 404 "$COMPOSE_PROJECT_DIR/certs/server.key"
    chmod 444 "$COMPOSE_PROJECT_DIR/certs/server.crt"
 }
 
