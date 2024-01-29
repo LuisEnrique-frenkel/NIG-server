@@ -1,6 +1,5 @@
 mqtt/data
 mqtt/log
-
 nodered/data/*
 !nodered/data/package.json
 !nodered/data/flows.json
@@ -8,3 +7,4 @@ nodered/data/*
 !nodered/data/settings.js
 influxdb/*
 certs/*
+grafana/*

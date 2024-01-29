@@ -22,7 +22,7 @@ services:
 
   grafana:
     image: grafana/grafana-oss:latest-ubuntu
-    container_name: grafana-server
+    container_name: grafana
     restart: always
     depends_on:
       - influxdb
@@ -36,7 +36,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - grafana:/var/lib/grafana
+      - ./grafana/var/lib/grafana:/var/lib/grafana
   
   nodered:
     build:
@@ -75,5 +75,5 @@ services:
     ports:
       - 8883:8883
  
-volumes:
-  grafana:
+# volumes:
+#   grafana:

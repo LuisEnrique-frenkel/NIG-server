@@ -64,7 +64,7 @@ function generate_client() {
    openssl x509 -req -sha256 -in "$COMPOSE_PROJECT_DIR/certs/client.csr" -CA "$COMPOSE_PROJECT_DIR/certs/ca.crt" -CAkey "$COMPOSE_PROJECT_DIR/certs/ca.key" -CAcreateserial -out "$COMPOSE_PROJECT_DIR/certs/client.crt" -days 3650
 
    # Establecer permisos más restrictivos
-   chmod 400 "$COMPOSE_PROJECT_DIR/certs/client.csr"
+   chmod 404 "$COMPOSE_PROJECT_DIR/certs/client.csr"
    chmod 444 "$COMPOSE_PROJECT_DIR/certs/client.csr"
 }
 
