@@ -47,16 +47,22 @@ Make sure you have Docker and Docker Compose and openssl installed on your syste
 4. Create certificates:
 
     ```bash
-    chmod +x CertsMaker.sh 
+    chmod +x CertsMaker.sh
     ```
 
 5. Create certificates:
 
     ```bash
+    chmod +x CertsMaker.sh 
+    ```
+
+6. Create certificates:
+
+    ```bash
     sudo ./CertsMaker.sh <file name> <ip> 
     ```
 
-6. Start the NIG server:
+7. Start the NIG server:
 
     ```bash
     docker-compose up -d 
@@ -64,28 +70,28 @@ Make sure you have Docker and Docker Compose and openssl installed on your syste
 
 7. Access the services:
 
-    - **Node-RED**: http://localhost:1880
-    - **Influx**: http://localhost:8086
-    - **Grafana**: http://localhost:3000 (login with Grafana admin credentials)
+    - **Node-RED**: https://localhost:1880
+    - **Influx**: https://localhost:8086
+    - **Grafana**: https://localhost:3000 (login with Grafana admin credentials)
     - **MQTT Broker**: Use port 1883 with the configured MQTT credentials
 
 ## Configuration Details
 
 ### Node-RED
 
-- Access Node-RED at http://localhost:1880
+- Access Node-RED at https://localhost:1880
 - Username: `admin`
 - Password: `admin_password`
 
 ### InfluxDB
 
-- Access Node-RED at http://localhost:8086
+- Access Node-RED at https://localhost:8086
 - Username: `influxdb_user`
 - Password: `influxdb_password`
 
 ### Grafana
 
-- Access Grafana at http://localhost:3000
+- Access Grafana at https://localhost:3000
 - Username: `grafana_admin`
 - Password: `grafana_password`
 
