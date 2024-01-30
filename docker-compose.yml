@@ -45,7 +45,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - ./grafana/var/lib/grafana:/var/lib/grafana:rw
+      - ./grafana/var/lib/grafana:/var/lib/grafana
       - ./certs:/certs
     command:
       - "sh"
