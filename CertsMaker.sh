@@ -28,7 +28,7 @@ fi
 COMPOSE_PROJECT_DIR="$1"
 
 mkdir -p "$COMPOSE_PROJECT_DIR/certs" 
-chmod -R u=rwx,g=rx,o=x "$COMPOSE_PROJECT_DIR/certs" 
+chmod -R u=rwx,g=rx,o=rx "$COMPOSE_PROJECT_DIR/certs" 
 sudo chown $USER:$USER "$COMPOSE_PROJECT_DIR/certs" -R
 
 # Just change to your belongings
