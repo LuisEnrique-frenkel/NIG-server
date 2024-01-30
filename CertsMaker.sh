@@ -28,7 +28,8 @@ fi
 COMPOSE_PROJECT_DIR="$1"
 
 mkdir -p "$COMPOSE_PROJECT_DIR/certs" 
-chmod -R u=rwx,g=rwx,o=rwx "$COMPOSE_PROJECT_DIR" 
+chmod -R u=rwx,g=rx,o=x "$COMPOSE_PROJECT_DIR/certs" 
+sudo chown $USER:$USER "$COMPOSE_PROJECT_DIR/certs" -R
 
 # Just change to your belongings
 #COMPOSE_PROJECT_DIR="./opt/mosquitto"
@@ -67,8 +68,6 @@ function generate_client() {
    chmod 404 "$COMPOSE_PROJECT_DIR/certs/client.csr"
    chmod 444 "$COMPOSE_PROJECT_DIR/certs/client.csr"
 }
-
-chmod o-w "$COMPOSE_PROJECT_DIR/certs"
 
 generate_CA
 generate_server
