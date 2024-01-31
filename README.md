@@ -14,22 +14,34 @@ Make sure you have Docker and Docker Compose and openssl installed on your syste
 ## Quick Start
 
 1. Clone this repository to your local machine:
-
     ```bash
     git clone https://github.com/LuisEnrique-frenkel/NIG-server.git
     ```
-
+    
 2. Navigate to the project directory:
-
     ```bash
     cd nig-server
     ```
-
-3. Create a `.env` file and configure the following environment variables:
-
+    
+3. Create grafana directory:
+    ```bash
+    mkdir -p ./grafana/var/lib/grafana
+    ```
+    
+4. Add permissions to create grafana volume directories:
+    ```bash
+    chmod g+w grafana/var/ -R
+    ```
+    
+5. Add permissions to create node red volume directories:
+    ```bash
+    chmod o+w nodered/data/ -R
+    ```
+    
+6. Create a `.env` file and configure the following environment variables:
     ```env
-    NODE_RED_USERNAME=admin
-    NODE_RED_PASSWORD=admin
+    NODE_RED_USERNAME=nodered_user
+    NODE_RED_PASSWORD=nodered_password
     NODE_RED_CREDENTIAL_SECRET=CredPass
     INFLUXDB_USERNAME=influxdb_user
     INFLUXDB_PASSWORD=influxdb_password
@@ -44,31 +56,30 @@ Make sure you have Docker and Docker Compose and openssl installed on your syste
     ```
    Replace the values with your desired usernames and passwords.
 
-4. Create certificates:
-
+7. Create certificates:
     ```bash
     chmod +x CertsMaker.sh
     ```
-
-5. Create certificates:
+    
+8. Create certificates:
 
     ```bash
     chmod +x CertsMaker.sh 
     ```
 
-6. Create certificates:
+9. Create certificates:
 
     ```bash
     sudo ./CertsMaker.sh <file name> <ip> 
     ```
 
-7. Start the NIG server:
+10. Start the NIG server:
 
     ```bash
     docker-compose up -d 
     ```
 
-7. Access the services:
+11. Access the services:
 
     - **Node-RED**: https://localhost:1880
     - **Influx**: https://localhost:8086
@@ -80,8 +91,8 @@ Make sure you have Docker and Docker Compose and openssl installed on your syste
 ### Node-RED
 
 - Access Node-RED at https://localhost:1880
-- Username: `admin`
-- Password: `admin_password`
+- Username: `nodered_user`
+- Password: `nodered_password`
 
 ### InfluxDB
 
@@ -106,7 +117,8 @@ Make sure you have Docker and Docker Compose and openssl installed on your syste
 To stop and remove the containers, use the following command:
 
 ```bash
-docker-compose down
+docker-compose down \
+docker system prune -a --volumes
 ```
 
 ## Notes
