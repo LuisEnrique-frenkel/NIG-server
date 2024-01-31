@@ -7,4 +7,4 @@ nodered/data/*
 !nodered/data/settings.js
 influxdb/*
 certs/*
-grafana/*
+grafana/var/lib/grafana/*
