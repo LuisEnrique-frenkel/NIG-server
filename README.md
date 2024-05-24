@@ -64,22 +64,16 @@ Make sure you have Docker and Docker Compose and openssl installed on your syste
 8. Create certificates:
 
     ```bash
-    chmod +x CertsMaker.sh 
-    ```
-
-9. Create certificates:
-
-    ```bash
     sudo ./CertsMaker.sh <file name> <ip> 
     ```
-
-10. Start the NIG server:
+Generaly is: sudo ./CertsMaker.sh `.` `127.0.0.1` 
+9. Start the NIG server:
 
     ```bash
     docker-compose up -d 
     ```
 
-11. Access the services:
+10. Access the services:
 
     - **Node-RED**: https://localhost:1880
     - **Influx**: https://localhost:8086
