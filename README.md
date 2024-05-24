@@ -66,7 +66,8 @@ Make sure you have Docker and Docker Compose and openssl installed on your syste
     ```bash
     sudo ./CertsMaker.sh <file name> <ip> 
     ```
-Generaly is: sudo ./CertsMaker.sh `.` `127.0.0.1` 
+Generaly is for the file name `.` and `127.0.0.1` for the ip.
+
 9. Start the NIG server:
 
     ```bash
