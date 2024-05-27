@@ -51,8 +51,8 @@ function generate_CA() {
 
 function generate_server() {
    echo "$SUBJECT_SERVER"
-   openssl req -nodes -sha256 -new -subj "$SUBJECT_SERVER" -keyout "$COMPOSE_PROJECT_DIR/certs/server.key" -out "$COMPOSE_PROJECT_DIR/certs/server.csr" -addext "subjectAltName=DNS:localhost,IP:127.0.0.1,IP:$IP"
-   openssl x509 -req -sha256 -in "$COMPOSE_PROJECT_DIR/certs/server.csr" -CA "$COMPOSE_PROJECT_DIR/certs/ca.crt" -CAkey "$COMPOSE_PROJECT_DIR/certs/ca.key" -CAcreateserial -out "$COMPOSE_PROJECT_DIR/certs/server.crt" -days 3650 -extfile <(printf "subjectAltName=DNS:localhost,IP:127.0.0.1,IP:$IP")
+   openssl req -nodes -sha256 -new -subj "$SUBJECT_SERVER" -keyout "$COMPOSE_PROJECT_DIR/certs/server.key" -out "$COMPOSE_PROJECT_DIR/certs/server.csr" -addext "subjectAltName=DNS:localhost,IP:$IP,IP:127.0.0.1"
+   openssl x509 -req -sha256 -in "$COMPOSE_PROJECT_DIR/certs/server.csr" -CA "$COMPOSE_PROJECT_DIR/certs/ca.crt" -CAkey "$COMPOSE_PROJECT_DIR/certs/ca.key" -CAcreateserial -out "$COMPOSE_PROJECT_DIR/certs/server.crt" -days 3650 -extfile <(printf "subjectAltName=DNS:localhost,IP:$IP,IP:127.0.0.1")
 
    # Establecer permisos más restrictivos
    chmod 404 "$COMPOSE_PROJECT_DIR/certs/server.key"
@@ -61,8 +61,8 @@ function generate_server() {
 
 function generate_client() {
    echo "$SUBJECT_CLIENT"
-   openssl req -new -nodes -sha256 -subj "$SUBJECT_CLIENT" -out "$COMPOSE_PROJECT_DIR/certs/client.csr" -keyout "$COMPOSE_PROJECT_DIR/certs/client.key" -addext "subjectAltName=DNS:localhost,IP:127.0.0.1,IP:$IP"
-   openssl x509 -req -sha256 -in "$COMPOSE_PROJECT_DIR/certs/client.csr" -CA "$COMPOSE_PROJECT_DIR/certs/ca.crt" -CAkey "$COMPOSE_PROJECT_DIR/certs/ca.key" -CAcreateserial -out "$COMPOSE_PROJECT_DIR/certs/client.crt" -days 3650 -extfile <(printf "subjectAltName=DNS:localhost,IP:127.0.0.1,IP:$IP")
+   openssl req -new -nodes -sha256 -subj "$SUBJECT_CLIENT" -out "$COMPOSE_PROJECT_DIR/certs/client.csr" -keyout "$COMPOSE_PROJECT_DIR/certs/client.key" -addext "subjectAltName=DNS:localhost,IP:$IP,IP:127.0.0.1"
+   openssl x509 -req -sha256 -in "$COMPOSE_PROJECT_DIR/certs/client.csr" -CA "$COMPOSE_PROJECT_DIR/certs/ca.crt" -CAkey "$COMPOSE_PROJECT_DIR/certs/ca.key" -CAcreateserial -out "$COMPOSE_PROJECT_DIR/certs/client.crt" -days 3650 -extfile <(printf "subjectAltName=DNS:localhost,IP:$IP,IP:127.0.0.1")
 
    # Establecer permisos más restrictivos
    chmod 404 "$COMPOSE_PROJECT_DIR/certs/client.csr"
